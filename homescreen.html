@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain Lab</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "secondary": "#0d59f2",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-dark": "#16251d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .active-day-glow {
+            box-shadow: 0 0 20px rgba(19, 236, 128, 0.4);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-light dark:bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Top Navigation Bar -->
+        <nav
+            class="absolute top-0 left-0 right-0 flex items-center bg-background-light dark:bg-background-dark p-4 pt-8 pb-2 justify-between z-40 border-b border-primary/10">
+            <div class="text-primary flex size-12 shrink-0 items-center justify-center bg-primary/10 rounded-xl">
+                <span class="material-symbols-outlined text-2xl">science</span>
+            </div>
+            <h2
+                class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 font-display uppercase italic ml-3">
+                IonChain Lab</h2>
+            <div class="flex w-12 items-center justify-end">
+                <button
+                    class="flex items-center justify-center rounded-lg size-10 bg-transparent text-primary hover:bg-primary/10 transition-colors">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content (Simplified) -->
+        <main class="flex-1 overflow-y-auto no-scrollbar pt-20 pb-24 p-4 flex flex-col gap-4">
+
+            <!-- Quick Stats -->
+            <div class="flex gap-3">
+                <div class="flex-1 rounded-xl p-4 bg-surface-dark border border-primary/20 shadow-sm flex flex-col">
+                    <span class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Fusion Points</span>
+                    <span class="text-2xl font-bold font-display text-white">12,450</span>
+                </div>
+                <div class="flex-1 rounded-xl p-4 bg-surface-dark border border-secondary/20 shadow-sm flex flex-col">
+                    <span class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Rank</span>
+                    <span class="text-2xl font-bold font-display text-secondary">#42</span>
+                </div>
+            </div>
+
+            <!-- Main Actions Grid -->
+            <div class="grid grid-cols-2 gap-3 flex-1 h-full min-h-[300px]">
+
+                <!-- Daily Login Card -->
+                <div onclick="window.location.href='dailylogin.html'"
+                    class="col-span-2 h-32 relative overflow-hidden rounded-2xl bg-surface-dark border border-primary/30 flex p-4 cursor-pointer active:scale-[0.98] transition-all group">
+                    <div class="absolute right-0 bottom-0 top-0 w-1/2 bg-gradient-to-l from-primary/10 to-transparent">
+                    </div>
+                    <div class="absolute right-4 bottom-4">
+                        <span
+                            class="material-symbols-outlined text-6xl text-primary opacity-20 group-hover:scale-110 transition-transform">calendar_month</span>
+                    </div>
+                    <div class="relative z-10 flex flex-col justify-center gap-1">
+                        <div
+                            class="bg-primary text-background-dark text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded w-fit">
+                            Reward Ready</div>
+                        <h3 class="text-2xl font-bold font-display text-white">Daily Attendance</h3>
+                        <p class="text-slate-400 text-xs">Day 04: 200 Points</p>
+                    </div>
+                </div>
+
+                <!-- Gacha Nexus Card -->
+                <div onclick="window.location.href='gachascreen.html'"
+                    class="col-span-2 h-32 relative overflow-hidden rounded-2xl bg-surface-dark border border-secondary/30 flex p-4 cursor-pointer active:scale-[0.98] transition-all group">
+                    <div
+                        class="absolute right-0 bottom-0 top-0 w-1/2 bg-gradient-to-l from-secondary/10 to-transparent">
+                    </div>
+                    <div class="absolute right-4 bottom-4">
+                        <span
+                            class="material-symbols-outlined text-6xl text-secondary opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-transform">auto_awesome</span>
+                    </div>
+                    <div class="relative z-10 flex flex-col justify-center gap-1">
+                        <div
+                            class="bg-secondary text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded w-fit">
+                            8 Pulls Available</div>
+                        <h3 class="text-2xl font-bold font-display text-white">Gacha Nexus</h3>
+                        <p class="text-slate-400 text-xs">Summon new elements</p>
+                    </div>
+                </div>
+
+                <!-- Tutorial / AR (Smaller) -->
+                <div onclick="window.location.href='ARscreen.html'"
+                    class="relative overflow-hidden rounded-2xl bg-surface-dark border border-white/5 flex flex-col p-4 cursor-pointer active:scale-[0.98] transition-all aspect-square justify-between">
+                    <span class="material-symbols-outlined text-3xl text-slate-500">view_in_ar</span>
+                    <div>
+                        <h4 class="font-bold text-white uppercase tracking-wider text-sm">AR View</h4>
+                        <p class="text-[10px] text-slate-500">Visualize atoms</p>
+                    </div>
+                </div>
+
+                <!-- Leaderboard (Smaller) -->
+                <div class="relative overflow-hidden rounded-2xl bg-surface-dark border border-white/5 flex flex-col p-4 cursor-pointer active:scale-[0.98] transition-all aspect-square justify-between"
+                    onclick="alert('Coming soon!')">
+                    <span class="material-symbols-outlined text-3xl text-slate-500">trophy</span>
+                    <div>
+                        <h4 class="font-bold text-white uppercase tracking-wider text-sm">Top 100</h4>
+                        <p class="text-[10px] text-slate-500">Global Rank</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Standard Bottom Navigation (Design System) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 bg-background-dark/90 backdrop-blur-xl border-t border-white/5 px-6 pb-6 pt-3 z-50">
+            <div class="flex items-center justify-between mx-auto">
+                <!-- Lab (Home) - Active -->
+                <a href="homescreen.html" class="flex flex-col items-center gap-1 text-primary">
+                    <span class="material-symbols-outlined fill-1">science</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Lab</span>
+                </a>
+                <!-- Collection -->
+                <a href="inventory.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Collection</span>
+                </a>
+                <!-- PLAY FAB -->
+                <a href="gamescreen.html" class="relative -top-6 group">
+                    <div
+                        class="size-16 rounded-full bg-primary flex items-center justify-center text-background-dark shadow-lg shadow-primary/40 border-4 border-background-dark group-hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">bolt</span>
+                    </div>
+                </a>
+                <!-- Social -->
+                <a href="tradescreen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">swap_vert</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Social</span>
+                </a>
+                <!-- Profile -->
+                <a href="summary_screen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

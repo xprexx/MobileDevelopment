@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IonChain Home Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d59f2",
+            "background-light": "#f5f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .neon-border {
+      box-shadow: 0 0 5px rgba(13, 89, 242, 0.3);
+      border: 1px solid rgba(13, 89, 242, 0.4);
+    }
+    .play-button-glow {
+      box-shadow: 0 0 15px rgba(13, 89, 242, 0.6);
+    }
+    .glass-nav {
+      backdrop-filter: blur(12px);
+      background: rgba(16, 22, 34, 0.85);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-10 shrink-0 items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">bubble_chart</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight flex-1 text-center font-display uppercase">IonChain</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-primary/10 text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col p-4 gap-6 max-w-md mx-auto w-full">
+<!-- Daily Login Reward Strip -->
+<section class="flex flex-col gap-3 p-4 rounded-xl neon-border bg-white/5 dark:bg-white/5">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-sm font-medium leading-normal uppercase tracking-widest text-primary">Daily Reward</p>
+<p class="text-xs font-normal leading-normal opacity-70">Day 4 / 7</p>
+</div>
+<div class="h-1.5 w-full rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 57%;"></div>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[10px] text-slate-500 dark:text-[#9ca6ba] uppercase font-bold">Next: 50x Catalyst</p>
+<span class="material-symbols-outlined text-primary text-sm">lock_open</span>
+</div>
+</section>
+<!-- Chemical Reactor Card (Gacha) -->
+<section class="group relative flex flex-col items-stretch justify-start rounded-xl overflow-hidden neon-border bg-white dark:bg-slate-900/50">
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover relative" data-alt="Abstract glowing blue molecular structure bonding" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCn5xHbj7Z4ZURP6OC0rMWB2VqpNGLl5fCriiE-8z92W5nAFmyTPBerb-rxr9rUyfGudlV3FxUFWx5SGFjw2Tw-PoLXGvpIAsmLMXHh6Y4-SeW40I3CMGqKyHbgMddv6g3b0DgxCauH7AGtQTw3UN0kdi4ejHJeH-GKF7Fz5qJ_vk6syIMbkZ9rd5hj-t5GcJ9XvDmdnWa_sB4x0N15RX9hXWL_lI4Fr0oR4oKqVAjYCEhhTrefWvKyWWfJD9vjQc4CYEp54-9BZ2p5");'>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 bg-primary/20 backdrop-blur-md border border-primary/30 rounded-full px-3 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">bolt</span>
+<span class="text-xs font-bold text-white">2,450 IC</span>
+</div>
+</div>
+<div class="flex w-full flex-col gap-3 p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold leading-tight font-display tracking-tight">Chemical Reactor</h3>
+<p class="text-slate-500 dark:text-[#9ca6ba] text-sm font-normal">High-speed bonding ready</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border border-slate-900 bg-primary/40 flex items-center justify-center text-[10px] font-bold">H</div>
+<div class="w-6 h-6 rounded-full border border-slate-900 bg-blue-400 flex items-center justify-center text-[10px] font-bold">He</div>
+<div class="w-6 h-6 rounded-full border border-slate-900 bg-indigo-500 flex items-center justify-center text-[10px] font-bold">O</div>
+</div>
+</div>
+<button class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white text-sm font-bold uppercase tracking-widest hover:bg-blue-600 transition-all active:scale-95 shadow-lg shadow-primary/20">
+          Synthesize
+        </button>
+</div>
+</section>
+<!-- Trading Hub Card -->
+<section class="p-4 rounded-xl neon-border bg-white dark:bg-slate-900/50">
+<div class="flex items-stretch justify-between gap-4">
+<div class="flex flex-[1.5_1.5_0px] flex-col gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<p class="text-slate-500 dark:text-[#9ca6ba] text-[10px] font-bold uppercase tracking-widest leading-normal">Live Feed</p>
+</div>
+<p class="text-lg font-bold leading-tight font-display">Trading Hub</p>
+<p class="text-slate-500 dark:text-[#9ca6ba] text-xs font-normal">3 Active Trade Requests</p>
+</div>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 flex-row-reverse bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white gap-2 text-xs font-bold uppercase tracking-wider w-fit hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>View Trades</span>
+</button>
+</div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex-1 border border-primary/20" data-alt="Minimalist neon atom logo on dark background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhByMIGK0Gma2p82KTLe6e8VjtviUstaUe1byI2qW_PBSffYS37fYXRGxs82emWc4Cc7tSzkRc56qPllA0t-ka0vPDmoxCgvc-RDKrSeY7Ze3Tnfe-YUUXz2Y_SyKMbwRCoXfmFY_GtdZusvd0MkN_Fazk29Sd_CbU9vt6buAi8qGbkTscimFJvtk4wTJb9y41j3SdgcpFl28aO3peqnIS5gjPgfBWf2wPCx6r8I8OUDP4xuPK_5UyBI28GQ07u_8ScIuzVEZwNOEf");'>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="sticky bottom-0 z-50 pb-8 pt-2 glass-nav border-t border-white/5">
+<div class="flex items-center px-4 max-w-md mx-auto">
+<nav class="flex w-full items-center justify-between">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl font-variation-fill">home</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-[#9ca6ba] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">science</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Items</p>
+</a>
+<!-- Main Play Button -->
+<div class="flex-1 -mt-10 flex justify-center">
+<button class="flex size-16 items-center justify-center rounded-full bg-primary text-white play-button-glow border-4 border-background-dark active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-4xl leading-none">play_arrow</span>
+</button>
+</div>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-[#9ca6ba] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">leaderboard</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Rank</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-[#9ca6ba] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Profile</p>
+</a>
+</nav>
+</div>
+</footer>
+</body></html>

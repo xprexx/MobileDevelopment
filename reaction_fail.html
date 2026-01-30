@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Error Detail: Invalid Oxide Bond</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#181111",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col text-white">
+<!-- Top Navigation Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined text-3xl">arrow_back_ios</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Error Detail</h2>
+</div>
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Error Headline -->
+<div class="pt-5 pb-3">
+<h2 class="text-primary tracking-tight text-[32px] font-bold leading-tight px-4 text-center">Reaction Failed</h2>
+<p class="text-gray-500 dark:text-[#ba9c9c] text-center text-sm font-medium mt-1 uppercase tracking-widest">Unstable Ionic Configuration</p>
+</div>
+<!-- Visual Card -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start shadow-xl bg-white dark:bg-[#271b1b] overflow-hidden border border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover relative" data-alt="3D visualization of a failed chemical bond between Sodium and Oxygen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCu0tZrjatvIjz-C13g5YBsenONqSLm3_kY4jAkAhjAVu3C-OFiZZ0OfKli2AwUJ3Hdg_XcwebiPKAQ0TP8Q-H1CFU6GURyNt8M6lR6uXd1Z5ffISVOuOXnfRf3xQsp4-1My9kTDx5XOgF6bFy8ponYxLmx-hF4AHFoBX6XMFly00M4tpjDV_F0quNCzLkEGYr3NwgNKncvKJXqpg7QprS0qEIlbj51XaBXVGMlKzJCA4_UhgjmmhCHYgm7LPauTu3N23qB8OXppMdi");'>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-8xl opacity-80">error</span>
+</div>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-6 px-6">
+<div class="flex justify-between items-center mb-2">
+<p class="text-gray-900 dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">Na<sup>+</sup> &amp; O<sup>-</sup> Bond</p>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold border border-primary/30 tracking-tighter italic">ILLEGAL ATOM</span>
+</div>
+<div class="flex items-end gap-3 justify-between">
+<p class="text-gray-600 dark:text-[#ba9c9c] text-base font-normal leading-normal italic">
+                            The resulting molecule lacks electrostatic equilibrium.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Explanation -->
+<div class="px-4 py-2">
+<div class="bg-gray-100 dark:bg-[#271b1b]/50 p-5 rounded-xl border-l-4 border-primary">
+<p class="text-gray-800 dark:text-white text-lg font-normal leading-relaxed">
+                    Oxygen typically forms the <strong class="text-primary font-bold">O<sup>2-</sup></strong> ion (oxide) by gaining two electrons to complete its valence shell. 
+                </p>
+<div class="my-4 h-px bg-gray-300 dark:bg-gray-700 w-full"></div>
+<p class="text-gray-800 dark:text-white text-lg font-normal leading-relaxed">
+                    The <strong class="text-primary font-bold">O<sup>-</sup></strong> species is highly unstable and does not exist in standard ionic bonding environments within the IonChain simulator.
+                </p>
+</div>
+</div>
+<!-- Action Panel / AR Lab -->
+<div class="p-4 @container">
+<div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border border-gray-300 dark:border-[#543b3b] bg-white dark:bg-[#181111] p-6 shadow-sm @[480px]:flex-row @[480px]:items-center">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Educational Insight</p>
+</div>
+<p class="text-gray-600 dark:text-[#ba9c9c] text-base font-normal leading-normal max-w-md">
+                        Visualize the octet rule in real-time. Learn more about valence electrons and ionic stability in our AR lab.
+                    </p>
+</div>
+<button class="flex w-full @[480px]:w-auto min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal transition-transform active:scale-95">
+<span class="material-symbols-outlined mr-2">view_in_ar</span>
+<span class="truncate">Open AR Lab</span>
+</button>
+</div>
+</div>
+<!-- Retry Options -->
+<div class="px-4 mt-2">
+<button class="w-full flex items-center justify-center h-14 rounded-xl border-2 border-primary text-primary font-bold text-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined mr-2">refresh</span>
+                Try Previous Level
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#181111] border-t border-gray-200 dark:border-[#271b1b] px-6 py-3 pb-8 flex justify-between items-center z-20 shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">HOME</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">science</span>
+<span class="text-[10px] font-bold text-primary">GAME</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="text-[10px] font-bold">RANKS</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">SETTINGS</span>
+</div>
+</nav>
+</body></html>

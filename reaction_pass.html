@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compound Detail: NaCl Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(19, 127, 236, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-white flex flex-col items-center justify-start overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<div class="w-full max-w-[480px] flex items-center bg-transparent p-4 pb-2 justify-between sticky top-0 z-50">
+<div class="text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display uppercase tracking-wider">IonChain</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">view_in_ar</span>
+</button>
+</div>
+</div>
+<!-- Main Content Container (Phone Form Factor) -->
+<main class="w-full max-w-[480px] flex flex-col gap-0">
+<!-- 3D Model Display (Hero Image) -->
+<div class="px-4 py-2 relative">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center overflow-hidden bg-gradient-to-b from-primary/10 to-transparent rounded-xl min-h-[340px] relative border border-white/5" data-alt="Abstract scientific visualization of molecular bonding structures" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJnT5ZKwR9k8HbUiUcHwiXjb_iTHW86-MCUenlviI5cmCyCPiKy57v4Ls6-pztvjs_0eDoEsBBCV9UDnHP8vsK7QrhctUgEesCfM6GUvpJsDtkytwRXr469AopSQ2TT3UG0rAoZxzIxEPHFnbyem4Fzy4SXU0QqW23t2sSOGydIqnirhp1CvqIcXgu6fqF8024x1ubq-oEXInMfKDN_pyONsBKN0E1pC2VoBkOzecYQbj8f-YH1fll9M6--gEu5DBSfLyUl6MTyzwH");'>
+<!-- Overlaying "3D Model" Representation -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Floating Salt Crystal Placeholder Icons/Graphics -->
+<div class="relative flex flex-col items-center gap-4">
+<div class="flex items-center justify-center gap-1">
+<div class="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/50">Na⁺</div>
+<div class="w-4 h-[2px] bg-white/20"></div>
+<div class="w-20 h-20 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-3xl shadow-lg shadow-green-500/50">Cl⁻</div>
+</div>
+<div class="bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">3d_rotation</span>
+<span class="text-xs font-medium uppercase tracking-widest">3D Model View</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Success Header -->
+<div class="flex flex-col items-center">
+<h4 class="text-primary text-sm font-bold leading-normal tracking-[0.15em] px-4 pt-6 pb-1 text-center font-display uppercase">Success: Bond Stable</h4>
+<h1 class="text-white text-3xl font-bold leading-tight px-4 text-center font-display">NaCl: Sodium Chloride</h1>
+</div>
+<!-- Description -->
+<div class="px-6 py-4">
+<p class="text-slate-400 text-base font-normal leading-relaxed text-center font-display">
+                Commonly found in Seawater and Table Salt. A vital mineral for biological systems and the most common ionic compound on Earth.
+            </p>
+</div>
+<!-- Properties Grid -->
+<div class="px-4 py-2 grid grid-cols-2 gap-3">
+<div class="glass-panel p-4 rounded-xl flex flex-col gap-1">
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Appearance</span>
+<span class="text-white text-sm font-medium">White / Crystalline</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col gap-1">
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Odor</span>
+<span class="text-white text-sm font-medium">Odorless</span>
+</div>
+</div>
+<!-- Bonding Rule Section -->
+<div class="px-4 py-4">
+<div class="bg-primary/10 border border-primary/30 rounded-xl p-5 glow-primary">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<h3 class="text-white font-bold text-sm font-display uppercase tracking-wider">Bonding Logic</h3>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-slate-300 text-sm leading-relaxed">
+                        Electrostatic Attraction: The <span class="text-blue-400 font-bold">+1 Sodium ion</span> and <span class="text-green-400 font-bold">-1 Chloride ion</span> neutralize each other perfectly to form a stable lattice.
+                    </p>
+<div class="bg-black/30 rounded-lg p-3 flex justify-between items-center">
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Charge A</span>
+<span class="text-primary font-bold">+1</span>
+</div>
+<span class="text-slate-600">+</span>
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Charge B</span>
+<span class="text-green-500 font-bold">-1</span>
+</div>
+<span class="text-slate-600">=</span>
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Total</span>
+<span class="text-white font-bold">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet Style Handle for Interaction -->
+<div class="mt-4 bg-background-dark border-t border-white/5 rounded-t-[2rem] pt-2 pb-8 px-6">
+<div class="flex justify-center mb-6">
+<div class="w-10 h-1 bg-slate-700 rounded-full"></div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl font-display flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                    Add to Collection
+                    <span class="material-symbols-outlined text-lg">inventory_2</span>
+</button>
+<button class="w-full bg-transparent border border-white/10 text-slate-400 font-bold py-4 rounded-xl font-display hover:text-white transition-all">
+                    Dismiss
+                </button>
+</div>
+</div>
+</main>
+<!-- Navigation Spacer -->
+<div class="h-8 w-full"></div>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain - AR Molecular Viewer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(16, 34, 25, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(19, 236, 128, 0.2);
+        }
+
+        .ar-viewport {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-black rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- AR Background Layer -->
+        <div class="absolute inset-0 ar-viewport opacity-80"></div>
+
+        <!-- Top App Bar (Modified) -->
+        <div class="relative z-20 pt-12 px-4 pb-4">
+            <div class="flex items-center glass-panel rounded-xl p-3 justify-between">
+                <div class="text-white flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-white/10 rounded-full"
+                    onclick="window.location.href='homescreen.html'">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h2 class="text-white text-lg font-bold leading-tight tracking-tight">H₂O - Water</h2>
+                    <span class="text-[10px] text-primary font-bold uppercase tracking-widest">AR Mode Active</span>
+                </div>
+                <div class="flex w-10 items-center justify-end">
+                    <button class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Model Interaction Area (Invisible but contextual) -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <!-- Reticle / Surface Detection UI -->
+            <div class="relative">
+                <div class="size-48 border-2 border-primary/40 rounded-full border-dashed animate-pulse"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="size-2 bg-primary rounded-full shadow-[0_0_15px_rgba(19,236,128,0.8)]"></div>
+                </div>
+                <!-- Molecule Label Overlay -->
+                <div
+                    class="absolute -top-16 left-1/2 -translate-x-1/2 bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                    Hydrogen Bonds (2)
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating UI Overlays -->
+        <div class="absolute bottom-32 left-0 right-0 z-10 px-4 flex flex-row items-end justify-between pb-6 gap-4">
+            <!-- Info Panel (Left) -->
+            <div class="flex-1 max-w-[200px]">
+                <div class="glass-panel p-4 rounded-xl space-y-3">
+                    <div class="border-l-2 border-primary pl-2">
+                        <p class="text-[10px] text-primary font-bold uppercase">Properties</p>
+                        <p class="text-white text-sm font-bold leading-tight">Polar Covalent</p>
+                    </div>
+                    <div class="border-l-2 border-primary/40 pl-2">
+                        <p class="text-[10px] text-primary/70 font-bold uppercase">Geometry</p>
+                        <p class="text-white text-sm font-medium leading-tight">V-shaped / Bent</p>
+                    </div>
+                    <div class="border-l-2 border-primary/40 pl-2">
+                        <p class="text-[10px] text-primary/70 font-bold uppercase">Angle</p>
+                        <p class="text-white text-sm font-medium leading-tight">104.5°</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Actions Bar (Right) -->
+            <div class="flex flex-col gap-3">
+                <button
+                    class="flex flex-col items-center justify-center gap-1 glass-panel size-14 rounded-xl text-white hover:bg-primary/20 transition-colors pointer-events-auto">
+                    <span class="material-symbols-outlined">rotate_right</span>
+                    <p class="text-[8px] font-bold uppercase">Rotate</p>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center gap-1 glass-panel size-14 rounded-xl text-white hover:bg-primary/20 transition-colors pointer-events-auto">
+                    <span class="material-symbols-outlined">zoom_in</span>
+                    <p class="text-[8px] font-bold uppercase">Zoom</p>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center gap-1 glass-panel size-14 rounded-xl text-primary bg-primary/10 border-primary border-2 pointer-events-auto">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">hub</span>
+                    <p class="text-[8px] font-bold uppercase">Bonds</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Controls & Navigation -->
+        <div class="absolute bottom-0 left-0 right-0 z-20">
+            <!-- Camera Shutter/Control (Modified) -->
+            <div class="flex items-center justify-center gap-8 pb-8 pointer-events-auto">
+                <button
+                    class="flex items-center justify-center rounded-full size-12 glass-panel text-white hover:bg-white/10">
+                    <span class="material-symbols-outlined">photo_library</span>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-full size-20 bg-primary text-background-dark shadow-lg shadow-primary/40 active:scale-95 transition-transform"
+                    onclick="alert('Snapshot saved!')">
+                    <span class="material-symbols-outlined text-4xl"
+                        style="font-variation-settings: 'FILL' 1">photo_camera</span>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-full size-12 glass-panel text-white hover:bg-white/10">
+                    <span class="material-symbols-outlined">auto_fix_high</span>
+                </button>
+            </div>
+
+            <!-- Bottom Navigation Bar (Standardized) -->
+            <div class="flex gap-2 border-t border-primary/10 glass-panel px-6 pb-6 pt-4">
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/50 hover:text-white"
+                    href="homescreen.html">
+                    <span class="material-symbols-outlined text-2xl">science</span>
+                    <p class="text-[10px] font-bold uppercase tracking-wider">Lab</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+                    <span class="material-symbols-outlined text-2xl"
+                        style="font-variation-settings: 'FILL' 1">view_in_ar</span>
+                    <p class="text-[10px] font-bold uppercase tracking-wider">AR View</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/50 hover:text-white"
+                    href="inventory.html">
+                    <span class="material-symbols-outlined text-2xl">grid_view</span>
+                    <p class="text-[10px] font-bold uppercase tracking-wider">Collect</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- AI Guide Toast (Positioned near the top) -->
+        <div class="absolute top-28 left-1/2 -translate-x-1/2 z-30 w-[85%] animate-bounce">
+            <div class="glass-panel p-3 rounded-xl flex items-center gap-3 border-l-4 border-l-primary shadow-xl">
+                <div
+                    class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark shrink-0">
+                    <span class="material-symbols-outlined text-lg">psychology</span>
+                </div>
+                <p class="text-xs text-white/90 font-medium">
+                    Try zooming in on the oxygen atom to see the electron distribution!
+                </p>
+                <button class="text-white/40 hover:text-white" onclick="this.parentElement.remove()">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

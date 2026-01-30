@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain - Session Summary</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0a120e",
+                        "surface-dark": "#16251d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-effect {
+            background: rgba(22, 37, 29, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(19, 236, 128, 0.1);
+        }
+
+        .neo-glow {
+            box-shadow: 0 0 15px rgba(19, 236, 128, 0.2);
+        }
+
+        /* Mobile Scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Sticky Header (Glass) -->
+        <div class="absolute top-0 left-0 right-0 z-40 glass-effect pt-6">
+            <div class="flex items-center p-4 pb-2 justify-between">
+                <div class="text-white flex size-12 shrink-0 items-center cursor-pointer"
+                    onclick="window.location.href='homescreen.html'">
+                    <span class="material-symbols-outlined">arrow_back_ios</span>
+                </div>
+                <h2
+                    class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display uppercase">
+                    Session Summary</h2>
+                <div class="flex w-12 items-center justify-end">
+                    <button class="flex items-center justify-center rounded-lg h-12 bg-transparent text-white p-0">
+                        <span class="material-symbols-outlined">share</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div class="px-4">
+                <div class="flex border-b border-white/10 gap-8 justify-center">
+                    <a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-[13px] pt-4"
+                        href="#">
+                        <p class="text-sm font-bold leading-normal tracking-widest uppercase">Successes</p>
+                    </a>
+                    <a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 pb-[13px] pt-4"
+                        href="#">
+                        <p class="text-sm font-bold leading-normal tracking-widest uppercase">Improvements</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <main class="flex-1 overflow-y-auto no-scrollbar pt-40 pb-24 p-0">
+            <!-- Stats Ribbon -->
+            <div class="flex flex-wrap gap-3 p-4">
+                <div
+                    class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-5 bg-surface-dark/50 border border-white/5 neo-glow">
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">Total Merges</p>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">layers</span>
+                        <p class="text-white tracking-tight text-3xl font-bold leading-tight font-display">12</p>
+                    </div>
+                </div>
+                <div
+                    class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-5 bg-surface-dark/50 border border-white/5">
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">XP Earned</p>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">bolt</span>
+                        <p class="text-white tracking-tight text-3xl font-bold leading-tight font-display">+450</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Header -->
+            <div class="px-4 pt-2 flex items-center justify-between">
+                <h3 class="text-white text-base font-bold leading-tight tracking-widest uppercase opacity-70">Successful
+                    Compounds</h3>
+                <span class="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded">8 NEW</span>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="p-4 flex flex-col gap-4">
+                <!-- Compound Card 1: NaCl -->
+                <div class="@container">
+                    <div
+                        class="flex flex-col items-stretch justify-start rounded-xl overflow-hidden bg-surface-dark/40 border border-white/10 shadow-xl">
+                        <div
+                            class="relative w-full aspect-video bg-gradient-to-br from-[#1a2e24] to-[#0a120e] flex items-center justify-center">
+                            <div class="absolute top-4 left-4 z-10">
+                                <span
+                                    class="flex items-center gap-1 bg-primary text-background-dark text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">
+                                    <span class="material-symbols-outlined text-xs">check_circle</span> Formed
+                                </span>
+                            </div>
+                            <!-- Mock 3D Crystal Placeholder -->
+                            <div class="w-32 h-32 relative">
+                                <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+                                <div class="w-full h-full bg-center bg-no-repeat bg-contain"
+                                    data-alt="3D model of a Sodium Chloride crystal lattice"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSBkBGnNtslkH6DWKakb0iuQnM94uB3i5qJsKAJolJmEU_N1nqCzUVw682aDgJvv3J4vEB_whTDT3dPXY48ze6GV21Scvb7U6Swx9_tZyhPfdlHQoQsUbLfwtgeqzl_wp3uRk0gBpOoZqW8nqWMXRBSUjpqwY84jkg3H_CP3FlJQdhIs5JjQ_FoYlurppnW4JRMFQiZh-NHbUT1s9sXTqZLwKreUsvScB34IKsLkQivsEzeTocrvVdUZujQ7glmpEFplLGurUo92f6");'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full flex-col gap-3 p-5">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-white text-xl font-bold leading-tight font-display">NaCl</h4>
+                                    <p class="text-slate-400 text-sm font-medium">Sodium Chloride</p>
+                                </div>
+                                <button
+                                    class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary border border-primary/20">
+                                    <span class="material-symbols-outlined">view_in_ar</span>
+                                </button>
+                            </div>
+                            <div class="bg-black/30 rounded-lg p-3 border-l-2 border-primary">
+                                <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Scientific
+                                    Logic</p>
+                                <p class="text-slate-300 text-sm font-normal leading-snug">
+                                    Charge Balance: <span class="text-primary font-bold">Na⁺¹</span> and <span
+                                        class="text-primary font-bold">Cl⁻¹</span> = 0.
+                                    Stable ionic lattice formed via electrostatic attraction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sticky Bottom Action -->
+        <div class="absolute bottom-0 left-0 right-0 p-4 glass-effect border-t border-white/5 z-40 pb-8">
+            <button
+                class="flex w-full items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-background-dark gap-2 text-base font-bold uppercase tracking-widest font-display shadow-[0_0_20px_rgba(19,236,128,0.4)]"
+                onclick="window.location.href='homescreen.html'">
+                <span>Return to Lab</span>
+                <span class="material-symbols-outlined">home</span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

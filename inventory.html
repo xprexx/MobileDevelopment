@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain | Collection</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "secondary": "#0d59f2",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-dark": "#16251d",
+                        "rarity-common": "#94a3b8",
+                        "rarity-rare": "#3b82f6",
+                        "rarity-super": "#a855f7",
+                        "rarity-exotic": "#fdbd39",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .rarity-glow-exotic {
+            box-shadow: 0 0 15px rgba(253, 189, 57, 0.4);
+        }
+
+        .rarity-glow-super {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .rarity-glow-rare {
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .tab-active {
+            background-color: #13ec80;
+            color: #102219;
+            font-weight: 700;
+        }
+
+        .tab-inactive {
+            background-color: transparent;
+            color: #64748b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Sticky Header & Tabs -->
+        <div
+            class="absolute top-0 left-0 right-0 z-40 bg-background-dark/95 backdrop-blur-md border-b border-primary/10">
+            <!-- Nav Bar -->
+            <div class="flex items-center p-4 pt-10 pb-2">
+                <h1 class="text-xl font-bold font-display uppercase italic tracking-tight text-white flex-1">Database
+                </h1>
+                <div class="flex items-center gap-2">
+                    <div
+                        class="bg-surface-dark border border-white/10 rounded-lg flex items-center px-2 py-1 gap-2 flex-1 max-w-[120px]">
+                        <span class="material-symbols-outlined text-slate-500 text-sm">search</span>
+                        <input type="text" id="search-input" onkeyup="filterContent()" placeholder="Search..."
+                            class="bg-transparent border-none text-white text-xs p-0 focus:ring-0 w-full placeholder-slate-600">
+                    </div>
+                </div>
+            </div>
+            <!-- Category Tabs -->
+            <div class="px-4 pb-4 flex gap-2 overflow-x-auto no-scrollbar" id="tabs-container">
+                <button onclick="switchTab('elements', this)"
+                    class="tab-btn px-4 py-1.5 rounded-full text-xs uppercase tracking-wider tab-active whitespace-nowrap">Elements</button>
+                <button onclick="switchTab('compounds', this)"
+                    class="tab-btn px-4 py-1.5 rounded-full text-xs uppercase tracking-wider tab-inactive whitespace-nowrap">Compounds</button>
+                <button onclick="switchTab('mixtures', this)"
+                    class="tab-btn px-4 py-1.5 rounded-full text-xs uppercase tracking-wider tab-inactive whitespace-nowrap">Mixtures</button>
+            </div>
+        </div>
+
+        <!-- Main Content (Scrollable) -->
+        <main class="flex-1 overflow-y-auto no-scrollbar pt-36 pb-24 p-4 space-y-6" id="main-content">
+
+            <!-- SECTION: ELEMENTS -->
+            <div id="elements-section" class="content-section">
+
+                <!-- Noble Gases -->
+                <div class="mb-6 item-group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Noble Gases</span>
+                        <div class="h-[1px] bg-white/10 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <!-- Helium -->
+                        <div onclick="window.location.href='element_detail.html?id=he'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-rare rarity-glow-rare flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="helium he">
+                            <span class="text-xl font-bold text-rarity-rare">He</span>
+                            <span class="text-[8px] uppercase text-slate-400 font-bold mt-1">Helium</span>
+                        </div>
+                        <!-- Neon -->
+                        <div onclick="window.location.href='element_detail.html?id=ne'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-super rarity-glow-super flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="neon ne">
+                            <span class="text-xl font-bold text-rarity-super">Ne</span>
+                            <span class="text-[8px] uppercase text-slate-400 font-bold mt-1">Neon</span>
+                        </div>
+                        <!-- Argon -->
+                        <div onclick="window.location.href='element_detail.html?id=ar'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-rare rarity-glow-rare flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="argon ar">
+                            <span class="text-xl font-bold text-slate-500">Ar</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold mt-1">Argon</span>
+                        </div>
+                        <!-- Krypton -->
+                        <div onclick="window.location.href='element_detail.html?id=kr'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-super rarity-glow-super flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="krypton kr">
+                            <span class="text-xl font-bold text-rarity-super">Kr</span>
+                            <span class="text-[8px] uppercase text-slate-400 font-bold mt-1">Krypton</span>
+                        </div>
+                        <!-- Xenon -->
+                        <div onclick="window.location.href='element_detail.html?id=xe'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-exotic rarity-glow-exotic flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="xenon xe">
+                            <span class="text-xl font-bold text-rarity-exotic">Xe</span>
+                            <span class="text-[8px] uppercase text-slate-400 font-bold mt-1">Xenon</span>
+                        </div>
+                        <!-- Radon -->
+                        <div onclick="window.location.href='element_detail.html?id=rn'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-exotic rarity-glow-exotic flex flex-col items-center justify-center relative cursor-pointer"
+                            data-name="radon rn">
+                            <span class="text-xl font-bold text-rarity-exotic">Rn</span>
+                            <span class="text-[8px] uppercase text-slate-400 font-bold mt-1">Radon</span>
+                            <span
+                                class="material-symbols-outlined absolute top-1 right-1 text-[10px] text-red-500 animate-pulse">warning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Halogens -->
+                <div class="mb-6 item-group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Halogens</span>
+                        <div class="h-[1px] bg-white/10 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                        <!-- Fluorine -->
+                        <div onclick="window.location.href='element_detail.html?id=f'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-yellow-200/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="fluorine f">
+                            <span class="text-xl font-bold text-yellow-200">F</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Fluorine</span>
+                        </div>
+                        <!-- Chlorine -->
+                        <div onclick="window.location.href='element_detail.html?id=cl'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-green-500/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="chlorine cl">
+                            <span class="text-xl font-bold text-green-500">Cl</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Chlorine</span>
+                        </div>
+                        <!-- Bromine -->
+                        <div onclick="window.location.href='element_detail.html?id=br'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-orange-700/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="bromine br">
+                            <span class="text-xl font-bold text-orange-700">Br</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Bromine</span>
+                        </div>
+                        <!-- Iodine -->
+                        <div onclick="window.location.href='element_detail.html?id=i'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-purple-700/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="iodine i">
+                            <span class="text-xl font-bold text-purple-700">I</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Iodine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Precious Metals -->
+                <div class="mb-6 item-group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Precious Metals</span>
+                        <div class="h-[1px] bg-white/10 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div onclick="window.location.href='element_detail.html?id=au'"
+                            class="search-item aspect-video rounded-xl bg-surface-dark border border-rarity-exotic rarity-glow-exotic flex flex-row items-center justify-between px-3 relative group overflow-hidden cursor-pointer"
+                            data-name="gold au">
+                            <div class="relative z-10">
+                                <span class="text-2xl font-bold text-rarity-exotic block">Au</span>
+                                <span class="text-[8px] uppercase text-slate-400 font-bold tracking-widest">Gold</span>
+                            </div>
+                            <span
+                                class="material-symbols-outlined text-rarity-exotic text-2xl opacity-50">hotel_class</span>
+                        </div>
+
+                        <div onclick="window.location.href='element_detail.html?id=ag'"
+                            class="search-item aspect-video rounded-xl bg-surface-dark border border-rarity-common flex flex-row items-center justify-between px-3 relative cursor-pointer"
+                            data-name="silver ag">
+                            <div>
+                                <span class="text-2xl font-bold text-rarity-common block">Ag</span>
+                                <span
+                                    class="text-[8px] uppercase text-slate-400 font-bold tracking-widest">Silver</span>
+                            </div>
+                        </div>
+
+                        <div onclick="window.location.href='element_detail.html?id=pt'"
+                            class="search-item aspect-video rounded-xl bg-surface-dark border border-rarity-rare rarity-glow-rare flex flex-row items-center justify-between px-3 relative cursor-pointer"
+                            data-name="platinum pt">
+                            <div>
+                                <span class="text-2xl font-bold text-rarity-rare block">Pt</span>
+                                <span
+                                    class="text-[8px] uppercase text-slate-400 font-bold tracking-widest">Platinum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basic Elements -->
+                <div class="mb-6 item-group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Basic Elements</span>
+                        <div class="h-[1px] bg-white/10 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                        <div onclick="window.location.href='element_detail.html?id=h'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="hydrogen h">
+                            <span class="text-xl font-bold text-rarity-common">H</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Hydrogen</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=c'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="carbon c">
+                            <span class="text-xl font-bold text-rarity-common">C</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Carbon</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=o'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="oxygen o">
+                            <span class="text-xl font-bold text-rarity-common">O</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Oxygen</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=n'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="nitrogen n">
+                            <span class="text-xl font-bold text-rarity-common">N</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Nitrogen</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=fe'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="iron fe">
+                            <span class="text-xl font-bold text-rarity-common">Fe</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Iron</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=cu'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="copper cu">
+                            <span class="text-xl font-bold text-rarity-common">Cu</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Copper</span>
+                        </div>
+                        <div onclick="window.location.href='element_detail.html?id=s'"
+                            class="search-item aspect-square rounded-xl bg-surface-dark border border-rarity-common/30 flex flex-col items-center justify-center cursor-pointer"
+                            data-name="sulfur s">
+                            <span class="text-xl font-bold text-rarity-common">S</span>
+                            <span class="text-[8px] uppercase text-slate-500 font-bold">Sulfur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: COMPOUNDS -->
+            <div id="compounds-section" class="content-section hidden">
+
+                <!-- SALTS COLLECTION -->
+                <div class="p-4 rounded-xl border border-white/5 bg-white/[0.02] mb-4">
+                    <h3 class="text-sm font-bold text-white mb-3 uppercase tracking-wide flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-primary">grain</span>
+                        Ionic Salts
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <!-- NaCl -->
+                        <div onclick="window.location.href='element_detail.html?id=nacl'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-white/10 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="salt nacl sodium chloride">
+                            <div
+                                class="size-10 bg-black/40 rounded flex items-center justify-center text-white font-bold text-xs ring-1 ring-white/10">
+                                NaCl</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Sodium Chloride</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Common Salt</p>
+                            </div>
+                        </div>
+
+                        <!-- KCl -->
+                        <div onclick="window.location.href='element_detail.html?id=kcl'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-white/10 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="potassium chloride kcl">
+                            <div
+                                class="size-10 bg-black/40 rounded flex items-center justify-center text-blue-200 font-bold text-xs ring-1 ring-white/10">
+                                KCl</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Potassium Chloride</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Metal Halide</p>
+                            </div>
+                        </div>
+
+                        <!-- MgCl2 -->
+                        <div onclick="window.location.href='element_detail.html?id=mgcl2'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-white/10 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="magnesium chloride mgcl2">
+                            <div
+                                class="size-10 bg-black/40 rounded flex items-center justify-center text-slate-300 font-bold text-xs ring-1 ring-white/10">
+                                MgCl₂</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Magnesium Chlor.</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Brine Extract</p>
+                            </div>
+                        </div>
+
+                        <!-- CaCl2 -->
+                        <div onclick="window.location.href='element_detail.html?id=cacl2'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-white/10 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="calcium chloride cacl2">
+                            <div
+                                class="size-10 bg-black/40 rounded flex items-center justify-center text-white font-bold text-xs ring-1 ring-white/10">
+                                CaCl₂</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Calcium Chloride</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Desiccant</p>
+                            </div>
+                        </div>
+
+                        <!-- AgNO3 -->
+                        <div onclick="window.location.href='element_detail.html?id=agno3'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-white/10 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="silver nitrate agno3">
+                            <div
+                                class="size-10 bg-black/40 rounded flex items-center justify-center text-slate-200 font-bold text-[10px] ring-1 ring-white/10">
+                                AgNO₃</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Silver Nitrate</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Precursor</p>
+                            </div>
+                        </div>
+
+                        <!-- CuSO4 -->
+                        <div onclick="window.location.href='element_detail.html?id=cuso4'"
+                            class="search-item p-3 rounded-lg bg-surface-dark border border-blue-500/30 active:bg-white/5 flex items-center gap-3 cursor-pointer transition-colors"
+                            data-name="copper sulfate cuso4">
+                            <div
+                                class="size-10 bg-blue-500/10 rounded flex items-center justify-center text-blue-400 font-bold text-[10px] ring-1 ring-blue-500/30">
+                                CuSO₄</div>
+                            <div class="overflow-hidden">
+                                <p class="text-white font-bold text-sm truncate">Copper Sulfate</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Blue Salt</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ACIDS -->
+                <div class="bg-surface-dark p-4 rounded-xl border border-white/5 mb-4">
+                    <h3 class="text-sm font-bold text-white mb-2 uppercase tracking-wide">Acids & Bases</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- H2SO4 -->
+                        <div onclick="window.location.href='element_detail.html?id=h2so4'"
+                            class="search-item p-3 rounded-lg bg-black/20 border border-primary/20 flex items-center gap-3 cursor-pointer active:scale-95 transition-transform"
+                            data-name="sulfuric acid h2so4">
+                            <div
+                                class="size-10 bg-surface-dark rounded flex items-center justify-center text-primary font-bold">
+                                H₂</div>
+                            <div>
+                                <p class="text-white font-bold">H₂SO₄</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Sulfuric Acid</p>
+                            </div>
+                        </div>
+                        <!-- HCl -->
+                        <div onclick="window.location.href='element_detail.html?id=hcl'"
+                            class="search-item p-3 rounded-lg bg-black/20 border border-primary/20 flex items-center gap-3 cursor-pointer active:scale-95 transition-transform"
+                            data-name="hydrochloric acid hcl">
+                            <div
+                                class="size-10 bg-surface-dark rounded flex items-center justify-center text-primary font-bold">
+                                HCl</div>
+                            <div>
+                                <p class="text-white font-bold">HCl</p>
+                                <p class="text-[10px] text-slate-500 uppercase">Hydrochloric Acid</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECTION: MIXTURES -->
+            <div id="mixtures-section" class="content-section hidden">
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="search-item w-full p-4 rounded-xl bg-surface-dark border border-orange-500/30 flex items-center gap-4"
+                        data-name="bronze alloy">
+                        <div
+                            class="size-12 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 font-bold text-sm border border-orange-500/20">
+                            CuSn</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <p class="text-lg font-bold text-white uppercase tracking-wide">Bronze</p>
+                                <span
+                                    class="bg-orange-500/20 text-orange-500 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Alloy</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Copper (88%) + Tin (12%)</p>
+                            <div class="w-full bg-white/10 h-1 rounded-full mt-2">
+                                <div class="bg-orange-500 h-full w-[88%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-item w-full p-4 rounded-xl bg-surface-dark border border-yellow-200/30 flex items-center gap-4"
+                        data-name="brass alloy">
+                        <div
+                            class="size-12 rounded-full bg-yellow-200/10 flex items-center justify-center text-yellow-200 font-bold text-sm border border-yellow-200/20">
+                            CuZn</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <p class="text-lg font-bold text-white uppercase tracking-wide">Brass</p>
+                                <span
+                                    class="bg-yellow-200/20 text-yellow-200 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Alloy</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Copper (60%) + Zinc (40%)</p>
+                            <div class="w-full bg-white/10 h-1 rounded-full mt-2">
+                                <div class="bg-yellow-200 h-full w-[60%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Standard Bottom Navigation (Design System) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 bg-background-dark/90 backdrop-blur-xl border-t border-white/5 px-6 pb-6 pt-3 z-50">
+            <div class="flex items-center justify-between mx-auto">
+                <!-- Lab (Home) -->
+                <a href="homescreen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">science</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Lab</span>
+                </a>
+                <!-- Collection - Active -->
+                <a href="inventory.html" class="flex flex-col items-center gap-1 text-primary">
+                    <span class="material-symbols-outlined fill-1">grid_view</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Database</span>
+                </a>
+                <!-- PLAY FAB -->
+                <a href="gamescreen.html" class="relative -top-6 group">
+                    <div
+                        class="size-16 rounded-full bg-primary flex items-center justify-center text-background-dark shadow-lg shadow-primary/40 border-4 border-background-dark group-hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">bolt</span>
+                    </div>
+                </a>
+                <!-- Social -->
+                <a href="tradescreen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">swap_vert</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Social</span>
+                </a>
+                <!-- Profile -->
+                <a href="summary_screen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabName, btn) {
+            // Update Buttons
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('tab-active');
+                b.classList.add('tab-inactive');
+            });
+            btn.classList.remove('tab-inactive');
+            btn.classList.add('tab-active');
+
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+
+            // Show selected section
+            const target = document.getElementById(tabName + '-section');
+            if (target) {
+                target.classList.remove('hidden');
+            } else {
+                console.warn('Section not found:', tabName);
+                document.getElementById('elements-section').classList.remove('hidden');
+            }
+        }
+
+        // Search Filter Logic
+        function filterContent() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const activeSection = document.querySelector('.content-section:not(.hidden)');
+
+            if (!activeSection) return;
+
+            const items = activeSection.querySelectorAll('.search-item');
+
+            items.forEach(item => {
+                const keywords = item.getAttribute('data-name');
+                if (keywords && keywords.includes(input)) {
+                    item.style.display = ''; // Reset to default CSS
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

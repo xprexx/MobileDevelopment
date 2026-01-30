@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain | Daily Claims</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "secondary": "#0d59f2",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-dark": "#16251d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .active-day-glow {
+            box-shadow: 0 0 20px rgba(19, 236, 128, 0.4);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Header -->
+        <div class="p-6 pt-12 flex items-center justify-between border-b border-white/5">
+            <div class="text-white flex size-12 shrink-0 items-center justify-center bg-white/5 rounded-full cursor-pointer hover:bg-white/10"
+                onclick="window.location.href='homescreen.html'">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </div>
+            <h2 class="text-white text-xl font-bold font-display uppercase tracking-widest">Attendance</h2>
+            <div class="size-12"></div> <!-- Spacer -->
+        </div>
+
+        <!-- Content -->
+        <main class="flex-1 overflow-y-auto no-scrollbar p-6 flex flex-col gap-6">
+
+            <div class="text-center space-y-2">
+                <h1 class="text-3xl font-bold text-white font-display">Day 04</h1>
+                <p class="text-slate-400 text-sm">Consistent research yields the best results.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+                    <span class="text-primary">Sequence Status</span>
+                    <span class="text-white">57%</span>
+                </div>
+                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary w-[57%] active-day-glow"></div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-4 gap-3">
+                <!-- Past Days -->
+                <div
+                    class="aspect-square rounded-xl bg-surface-dark/50 border border-white/5 flex flex-col items-center justify-center grayscale opacity-50">
+                    <span class="material-symbols-outlined text-primary text-xl">check</span>
+                    <span class="text-[10px] font-bold mt-1 text-slate-500">Day 1</span>
+                </div>
+                <div
+                    class="aspect-square rounded-xl bg-surface-dark/50 border border-white/5 flex flex-col items-center justify-center grayscale opacity-50">
+                    <span class="material-symbols-outlined text-primary text-xl">check</span>
+                    <span class="text-[10px] font-bold mt-1 text-slate-500">Day 2</span>
+                </div>
+                <div
+                    class="aspect-square rounded-xl bg-surface-dark/50 border border-white/5 flex flex-col items-center justify-center grayscale opacity-50">
+                    <span class="material-symbols-outlined text-primary text-xl">check</span>
+                    <span class="text-[10px] font-bold mt-1 text-slate-500">Day 3</span>
+                </div>
+
+                <!-- Active Day -->
+                <div
+                    class="aspect-square rounded-xl bg-background-dark border-2 border-primary active-day-glow flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-primary/10 animate-pulse"></div>
+                    <span class="material-symbols-outlined text-primary text-2xl">generating_tokens</span>
+                    <span class="text-[10px] font-black mt-1 text-white uppercase">Day 4</span>
+                </div>
+
+                <!-- Future Days -->
+                <div
+                    class="aspect-square rounded-xl bg-surface-dark/30 border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-slate-600 font-bold text-lg">5</span>
+                </div>
+                <div
+                    class="aspect-square rounded-xl bg-surface-dark/30 border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-slate-600 font-bold text-lg">6</span>
+                </div>
+                <div
+                    class="aspect-[2/1] col-span-2 rounded-xl bg-gradient-to-br from-primary/20 to-surface-dark border border-primary/30 flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-primary">redeem</span>
+                    <span class="text-xs font-bold text-white uppercase tracking-widest">Grand Prize</span>
+                </div>
+            </div>
+
+            <!-- Big Claim Button -->
+            <button
+                class="w-full h-20 bg-primary text-background-dark rounded-2xl font-black text-xl uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(19,236,128,0.4)] active:scale-95 transition-all mt-auto"
+                onclick="this.innerHTML='<span class=\'material-symbols-outlined\'>check</span> CLAIMED'; this.classList.add('grayscale', 'pointer-events-none');">
+                <span class="material-symbols-outlined text-3xl">touch_app</span>
+                Claim Reward
+            </button>
+
+        </main>
+    </div>
+</body>
+
+</html>

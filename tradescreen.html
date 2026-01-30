@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain | Social</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "secondary": "#0d59f2",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-dark": "#16251d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .tab-active {
+            color: #13ec80;
+            border-bottom-color: #13ec80;
+        }
+
+        .tab-inactive {
+            color: #64748b;
+            border-bottom-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Sticky Header -->
+        <div
+            class="absolute top-0 left-0 right-0 z-40 bg-background-dark/95 backdrop-blur-md border-b border-primary/10">
+            <div class="p-4 pt-10 pb-4 flex items-center justify-between">
+                <h1 class="text-xl font-bold font-display uppercase italic tracking-tight text-white">Global Network
+                </h1>
+                <div class="flex gap-2">
+                    <button
+                        class="bg-surface-dark border border-white/10 rounded-lg size-9 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-lg">group_add</span>
+                    </button>
+                    <button
+                        class="bg-surface-dark border border-white/10 rounded-lg size-9 flex items-center justify-center text-primary relative">
+                        <span class="material-symbols-outlined text-lg">notifications</span>
+                        <span
+                            class="absolute top-0 right-0 size-2.5 bg-red-500 rounded-full border border-background-dark"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div class="px-4 pb-0 flex gap-6 border-b border-white/5 overflow-x-auto no-scrollbar">
+                <button onclick="switchTab('ranking', this)"
+                    class="tab-btn pb-3 border-b-2 font-bold text-sm uppercase tracking-wider tab-active whitespace-nowrap">Ranking</button>
+                <button onclick="switchTab('trade', this)"
+                    class="tab-btn pb-3 border-b-2 font-bold text-sm uppercase tracking-wider tab-inactive whitespace-nowrap">Trade
+                    Market</button>
+                <button onclick="switchTab('friends', this)"
+                    class="tab-btn pb-3 border-b-2 font-bold text-sm uppercase tracking-wider tab-inactive whitespace-nowrap">Friends</button>
+                <button onclick="switchTab('requests', this)"
+                    class="tab-btn pb-3 border-b-2 font-bold text-sm uppercase tracking-wider tab-inactive whitespace-nowrap">Requests
+                    (2)</button>
+            </div>
+        </div>
+
+        <!-- Main Content (Scrollable) -->
+        <main class="flex-1 overflow-y-auto no-scrollbar pt-40 pb-24 p-0 content-container relative">
+
+            <!-- TAB: RANKING -->
+            <div id="ranking-tab" class="content-section">
+                <!-- Top 3 Podium -->
+                <div class="px-4 pt-4 pb-8 flex items-end justify-center gap-2">
+                    <!-- 2nd Place -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative size-16 rounded-full border-2 border-slate-300 p-1 mb-2 bg-slate-800">
+                            <div
+                                class="w-full h-full rounded-full bg-slate-600 flex items-center justify-center text-white font-bold">
+                                AD</div>
+                            <div class="absolute -bottom-2 inset-x-0 flex justify-center">
+                                <span
+                                    class="bg-slate-300 text-black text-[10px] font-bold px-1.5 rounded-full">#2</span>
+                            </div>
+                        </div>
+                        <p class="text-xs font-bold text-slate-300">Alex</p>
+                        <p class="text-[10px] text-slate-500 font-mono">11,200</p>
+                        <div
+                            class="w-16 h-20 bg-surface-dark border-t border-r border-l border-slate-600/30 rounded-t-lg mt-2">
+                        </div>
+                    </div>
+
+                    <!-- 1st Place -->
+                    <div class="flex flex-col items-center z-10">
+                        <span class="material-symbols-outlined text-yellow-400 text-xl mb-1 animate-bounce">crown</span>
+                        <div
+                            class="relative size-20 rounded-full border-2 border-yellow-400 p-1 mb-2 shadow-[0_0_20px_rgba(250,204,21,0.3)] bg-slate-800">
+                            <div
+                                class="w-full h-full rounded-full bg-yellow-600 flex items-center justify-center text-white font-bold">
+                                SS</div>
+                            <div class="absolute -bottom-2 inset-x-0 flex justify-center">
+                                <span class="bg-yellow-400 text-black text-[10px] font-bold px-2 rounded-full">#1</span>
+                            </div>
+                        </div>
+                        <p class="text-sm font-bold text-yellow-400">Sarah.S</p>
+                        <p class="text-[10px] text-slate-400 font-mono">15,450</p>
+                        <div
+                            class="w-20 h-28 bg-surface-dark border-t border-r border-l border-yellow-500/30 rounded-t-lg mt-2 bg-gradient-to-t from-transparent to-yellow-500/10">
+                        </div>
+                    </div>
+
+                    <!-- 3rd Place -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative size-16 rounded-full border-2 border-orange-700 p-1 mb-2 bg-slate-800">
+                            <div
+                                class="w-full h-full rounded-full bg-orange-900 flex items-center justify-center text-white font-bold">
+                                JW</div>
+                            <div class="absolute -bottom-2 inset-x-0 flex justify-center">
+                                <span
+                                    class="bg-orange-700 text-white text-[10px] font-bold px-1.5 rounded-full">#3</span>
+                            </div>
+                        </div>
+                        <p class="text-xs font-bold text-orange-700">John.W</p>
+                        <p class="text-[10px] text-slate-500 font-mono">10,950</p>
+                        <div
+                            class="w-16 h-14 bg-surface-dark border-t border-r border-l border-orange-700/30 rounded-t-lg mt-2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List -->
+                <div class="px-4 flex flex-col gap-2">
+                    <div
+                        class="p-3 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <p class="text-sm font-bold text-primary w-6 text-center">42</p>
+                            <div
+                                class="size-10 rounded-full bg-primary text-background-dark font-bold flex items-center justify-center">
+                                ME</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">You</p>
+                                <p class="text-[10px] text-primary uppercase tracking-wider">Grandmaster</p>
+                            </div>
+                        </div>
+                        <p class="font-mono font-bold text-white">9,240</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-surface-dark border border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <p class="text-sm font-bold text-slate-500 w-6 text-center">4</p>
+                            <div
+                                class="size-10 rounded-full bg-slate-800 text-slate-400 font-bold flex items-center justify-center">
+                                MK</div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-300">Mike.R</p>
+                            </div>
+                        </div>
+                        <p class="font-mono font-bold text-slate-400">10,120</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: TRADE -->
+            <div id="trade-tab" class="content-section hidden px-4 py-4 space-y-4">
+                <div class="flex gap-2">
+                    <button
+                        class="flex-1 bg-white/5 py-2 rounded-lg text-xs font-bold uppercase hover:bg-white/10">Buy</button>
+                    <button
+                        class="flex-1 bg-primary/20 text-primary py-2 rounded-lg text-xs font-bold uppercase hover:bg-primary/30">Sell</button>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Trade Item 1 -->
+                    <div
+                        class="glass-panel p-3 rounded-xl border border-white/10 flex items-center justify-between bg-surface-dark">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 rounded bg-indigo-500/20 text-indigo-400 flex items-center justify-center border border-indigo-500/30 font-bold text-xs">
+                                Ti</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Titanium x50</p>
+                                <p class="text-[10px] text-slate-400">Seller: <span
+                                        class="text-primary">NeonTrader</span></p>
+                            </div>
+                        </div>
+                        <button
+                            class="px-4 py-2 bg-primary text-background-dark font-bold text-xs rounded-lg uppercase">200
+                            Cr</button>
+                    </div>
+                    <!-- Trade Item 2 -->
+                    <div
+                        class="glass-panel p-3 rounded-xl border border-white/10 flex items-center justify-between bg-surface-dark">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 rounded bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/30 font-bold text-xs">
+                                Au</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Gold x10</p>
+                                <p class="text-[10px] text-slate-400">Seller: <span
+                                        class="text-slate-300">Miner49er</span></p>
+                            </div>
+                        </div>
+                        <button
+                            class="px-4 py-2 bg-white/10 text-white font-bold text-xs rounded-lg uppercase border border-white/20">500
+                            Cr</button>
+                    </div>
+                    <!-- Trade Item 3 -->
+                    <div
+                        class="glass-panel p-3 rounded-xl border border-white/10 flex items-center justify-between bg-surface-dark">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center border border-sky-500/30 font-bold text-xs">
+                                Li</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Lithium x100</p>
+                                <p class="text-[10px] text-slate-400">Seller: <span
+                                        class="text-slate-300">BatteryCorp</span></p>
+                            </div>
+                        </div>
+                        <button
+                            class="px-4 py-2 bg-white/10 text-white font-bold text-xs rounded-lg uppercase border border-white/20">350
+                            Cr</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: FRIENDS -->
+            <div id="friends-tab" class="content-section hidden px-4 py-4 space-y-4">
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-500 text-lg">search</span>
+                    <input type="text" placeholder="Search friends..."
+                        class="w-full bg-surface-dark border border-white/10 rounded-xl pl-10 pr-4 py-2 text-sm text-white focus:ring-1 focus:ring-primary focus:border-primary placeholder-slate-600">
+                </div>
+
+                <div class="space-y-1">
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Online - 3</p>
+                    <!-- Friend -->
+                    <div
+                        class="flex items-center justify-between p-3 hover:bg-white/5 rounded-xl transition-colors cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div
+                                    class="size-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-slate-300">
+                                    AK</div>
+                                <div
+                                    class="absolute bottom-0 right-0 size-3 bg-green-500 border-2 border-background-dark rounded-full">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">AtomKiller</p>
+                                <p class="text-[10px] text-green-400">Synthesizing...</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-500 hover:text-white">chat</span>
+                    </div>
+                    <!-- Friend -->
+                    <div
+                        class="flex items-center justify-between p-3 hover:bg-white/5 rounded-xl transition-colors cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div
+                                    class="size-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-slate-300">
+                                    Dr</div>
+                                <div
+                                    class="absolute bottom-0 right-0 size-3 bg-green-500 border-2 border-background-dark rounded-full">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Dr_Fusion</p>
+                                <p class="text-[10px] text-slate-500">Idle</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-500 hover:text-white">chat</span>
+                    </div>
+                </div>
+
+                <div class="space-y-1 pt-4">
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Offline</p>
+                    <div class="flex items-center justify-between p-3 opacity-60">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div
+                                    class="size-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-slate-500">
+                                    X</div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">XenonMaster</p>
+                                <p class="text-[10px] text-slate-500">Last seen 2h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: REQUESTS -->
+            <div id="requests-tab" class="content-section hidden px-4 py-4 space-y-4">
+                <div class="bg-surface-dark border border-white/10 rounded-xl p-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="size-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold border border-indigo-500/30">
+                            N</div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Nexus_One</p>
+                            <p class="text-[10px] text-slate-400">sent a friend request</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex-1 bg-primary text-background-dark py-2 rounded-lg text-xs font-bold uppercase">Accept</button>
+                        <button
+                            class="flex-1 bg-white/5 text-slate-400 py-2 rounded-lg text-xs font-bold uppercase">Ignore</button>
+                    </div>
+                </div>
+
+                <div class="bg-surface-dark border border-white/10 rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-12 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold border border-pink-500/30">
+                                R</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">RoseGold</p>
+                                <p class="text-[10px] text-slate-400">wants to trade</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-primary">swap_horiz</span>
+                    </div>
+                    <div
+                        class="bg-black/20 p-2 rounded-lg mb-3 flex items-center justify-between text-xs text-slate-300">
+                        <span>Your: <b>Gold x5</b></span>
+                        <span class="text-slate-500">for</span>
+                        <span>Their: <b>Platinum x2</b></span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex-1 bg-primary text-background-dark py-2 rounded-lg text-xs font-bold uppercase">Trade</button>
+                        <button
+                            class="flex-1 bg-white/5 text-slate-400 py-2 rounded-lg text-xs font-bold uppercase">Decline</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Standard Bottom Navigation (Design System) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 bg-background-dark/90 backdrop-blur-xl border-t border-white/5 px-6 pb-6 pt-3 z-50">
+            <div class="flex items-center justify-between mx-auto">
+                <!-- Lab (Home) -->
+                <a href="homescreen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">science</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Lab</span>
+                </a>
+                <!-- Collection -->
+                <a href="inventory.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Database</span>
+                </a>
+                <!-- PLAY FAB -->
+                <a href="gamescreen.html" class="relative -top-6 group">
+                    <div
+                        class="size-16 rounded-full bg-primary flex items-center justify-center text-background-dark shadow-lg shadow-primary/40 border-4 border-background-dark group-hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">bolt</span>
+                    </div>
+                </a>
+                <!-- Social - Active -->
+                <a href="tradescreen.html" class="flex flex-col items-center gap-1 text-primary">
+                    <span class="material-symbols-outlined fill-1">swap_vert</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Social</span>
+                </a>
+                <!-- Profile -->
+                <a href="summary_screen.html"
+                    class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId, btnElement) {
+            // Logic to switch tabs
+            // 1. Hide all sections
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+
+            // 2. Show target section
+            document.getElementById(tabId + '-tab').classList.remove('hidden');
+
+            // 3. Update Button Styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+                btn.classList.remove('border-b-2'); // Remove styling from inactive
+                btn.classList.add('border-b-2'); // Keep border width but transparent color
+            });
+
+            btnElement.classList.remove('tab-inactive');
+            btnElement.classList.add('tab-active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IonChain: Session Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "error-soft": "#ff5c5c",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ion-badge {
+            background: linear-gradient(135deg, #13ec80 0%, #0ca358 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- TopAppBar Component -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Session Summary</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent gap-2 p-0">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Tabs Component -->
+<div class="pb-3 sticky top-[72px] z-40 bg-background-light dark:bg-background-dark">
+<div class="flex border-b border-slate-200 dark:border-[#3b5447] px-4 justify-between">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-slate-400 dark:text-[#9db9ab] pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Successes</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Errors</p>
+</a>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- HeadlineText Component -->
+<header class="px-4 pt-5 pb-2">
+<h3 class="tracking-light text-2xl font-bold leading-tight">Learning Lab</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal mt-1">Review your missed connections to master ionic bonding.</p>
+</header>
+<!-- SectionHeader Component -->
+<div class="px-4 pb-2 pt-6">
+<h3 class="text-error-soft text-sm font-bold leading-tight tracking-[0.1em] uppercase">Failed Attempts (4)</h3>
+</div>
+<!-- Error Log List -->
+<div class="px-4 space-y-4">
+<!-- Error Card 1 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error-soft"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm">Na+</div>
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm">O-</div>
+</div>
+<span class="material-symbols-outlined text-error-soft">close</span>
+</div>
+<button class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">view_in_ar</span> AR VIEW
+                    </button>
+</div>
+<div>
+<h4 class="text-error-soft font-bold text-base mb-1">Invalid Species</h4>
+<p class="text-sm text-slate-400 leading-relaxed">Oxygen usually exists as O<sup>2-</sup> in ionic bonds. A single O<sup>-</sup> ion is highly unstable and won't form a stable lattice with Sodium.</p>
+</div>
+<div class="bg-primary/5 rounded-lg p-3 border border-primary/20">
+<p class="text-xs text-primary font-bold mb-1 uppercase tracking-wider">Correct Alternative</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold">Na<sub>2</sub>O <span class="text-xs font-normal text-slate-400 ml-2">(Sodium Oxide)</span></span>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Error Card 2 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error-soft"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm">He</div>
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm text-blue-400">Cl-</div>
+</div>
+<span class="material-symbols-outlined text-error-soft">close</span>
+</div>
+<button class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">view_in_ar</span> AR VIEW
+                    </button>
+</div>
+<div>
+<h4 class="text-error-soft font-bold text-base mb-1">Inert Element Detected</h4>
+<p class="text-sm text-slate-400 leading-relaxed">Helium is a Noble Gas with a full valence shell. It does not gain or lose electrons to form ionic bonds under standard conditions.</p>
+</div>
+<div class="bg-primary/5 rounded-lg p-3 border border-primary/20">
+<p class="text-xs text-primary font-bold mb-1 uppercase tracking-wider">Try Instead</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold">MgCl<sub>2</sub> <span class="text-xs font-normal text-slate-400 ml-2">(Magnesium Chloride)</span></span>
+<span class="material-symbols-outlined text-primary">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Error Card 3 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error-soft"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm">Al3+</div>
+<div class="size-10 rounded-full bg-slate-800 border-2 border-background-dark flex items-center justify-center font-bold text-sm">Cl-</div>
+</div>
+<span class="material-symbols-outlined text-error-soft">close</span>
+</div>
+<button class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">view_in_ar</span> AR VIEW
+                    </button>
+</div>
+<div>
+<h4 class="text-error-soft font-bold text-base mb-1">Unbalanced Charge</h4>
+<p class="text-sm text-slate-400 leading-relaxed">Your merger resulted in a net charge of +2. Ionic compounds must be electrically neutral. You need more Chloride ions.</p>
+</div>
+<div class="bg-primary/5 rounded-lg p-3 border border-primary/20">
+<p class="text-xs text-primary font-bold mb-1 uppercase tracking-wider">Correct Ratio</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold">AlCl<sub>3</sub> <span class="text-xs font-normal text-slate-400 ml-2">(Aluminum Chloride)</span></span>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="px-4 py-8">
+<button class="w-full bg-primary text-background-dark font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">restart_alt</span>
+                RETRY FAILED BONDS
+            </button>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 pb-6 pt-2">
+<div class="flex justify-around items-center max-w-md mx-auto">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Play</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">science</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Lab</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Ranks</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</div>
+</div>
+</footer>
+</body></html>

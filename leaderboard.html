@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IonChain Leaderboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#135bec",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-primary {
+            box-shadow: 0 0 15px rgba(19, 91, 236, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pt-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center justify-center size-10 rounded-full bg-slate-100 dark:bg-slate-800 cursor-pointer">
+<span class="material-symbols-outlined">chevron_left</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Ion Rankings</h2>
+<div class="flex items-center justify-center size-10 rounded-full bg-slate-100 dark:bg-slate-800 cursor-pointer">
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+<!-- Segmented Toggle -->
+<div class="flex h-11 items-center justify-center rounded-full bg-slate-200 dark:bg-[#282e39] p-1 mb-2">
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#111318] has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9da6b9] text-sm font-medium transition-all">
+<span class="truncate">Global</span>
+<input checked="" class="hidden" name="leaderboard-type" type="radio" value="Global"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#111318] has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9da6b9] text-sm font-medium transition-all">
+<span class="truncate">Friends</span>
+<input class="hidden" name="leaderboard-type" type="radio" value="Friends"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-[#111318] has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-white text-slate-500 dark:text-[#9da6b9] text-sm font-medium transition-all">
+<span class="truncate">School</span>
+<input class="hidden" name="leaderboard-type" type="radio" value="School"/>
+</label>
+</div>
+</div>
+<main class="pb-32">
+<!-- Timer / Season Countdown -->
+<div class="px-4 py-4">
+<p class="text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500 text-center mb-3">Season Ends In</p>
+<div class="flex gap-3 justify-center">
+<div class="flex flex-col items-center gap-1">
+<div class="flex h-12 w-14 items-center justify-center rounded-xl bg-slate-100 dark:bg-[#282e39] border border-slate-200 dark:border-slate-800">
+<p class="text-lg font-bold">04</p>
+</div>
+<p class="text-[10px] uppercase font-medium text-slate-400">Days</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="flex h-12 w-14 items-center justify-center rounded-xl bg-slate-100 dark:bg-[#282e39] border border-slate-200 dark:border-slate-800">
+<p class="text-lg font-bold">18</p>
+</div>
+<p class="text-[10px] uppercase font-medium text-slate-400">Hours</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="flex h-12 w-14 items-center justify-center rounded-xl bg-slate-100 dark:bg-[#282e39] border border-slate-200 dark:border-slate-800">
+<p class="text-lg font-bold">42</p>
+</div>
+<p class="text-[10px] uppercase font-medium text-slate-400">Mins</p>
+</div>
+</div>
+</div>
+<!-- Top 3 Podium (Image Grid Style) -->
+<div class="grid grid-cols-3 gap-3 p-4 items-end mb-4">
+<!-- Rank 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative size-20 rounded-full p-1 bg-gradient-to-tr from-slate-400 to-slate-200">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="Profile picture of player ranked second" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXtgmBUtquEtOcTxWcLMqMMW5XO-gkUXfrz4-JWJsY-7Ps3xQxhJODrwwG4Dhh2oS6djTE5rEt0CwzVFauaLiF7KNOMSYzNajakQr8k1QYxKhEXjxKOTZcAc3MebvgWQd0XcGDaNTUTILGPzR4PPtlCoYu_kDbh8s-hG-OIO3kWbBxdU1GIU4HvDSGxBmxCfolx2mChZbxFWIzpD63NQcyfnt-DWrP1eQVwqK3veTxOo-Q1mC_CimQsP3bRQAoBXqaEWwQIXXs6m0K");'></div>
+<div class="absolute -bottom-1 -right-1 bg-slate-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full border-2 border-background-dark">#2</div>
+</div>
+<p class="text-xs font-bold truncate w-full text-center">SilverNova</p>
+<p class="text-[10px] text-primary font-medium">18.4k Mastery</p>
+</div>
+<!-- Rank 1 -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative size-28 rounded-full p-1.5 bg-gradient-to-tr from-yellow-500 to-amber-200 glow-primary">
+<div class="size-full rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Profile picture of player ranked first" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9W6_i40r3lU3Tzwf5FMecdFLEpv8IwKzp2bmoChBEtSs1L2RMJOUurEgn-2HTGdQGbxjWBjNXeMfDjOfKwi4EL9TJafiTPY0wtFbjH6HmkMctUDwIbMMMeQx1jMMG6C00ktZ2nw6icH-TmQnsaWezioly0X4UQ7O5VTIFCQOQePFeim6SAfWk9d3j6Cs5cp2bj6iAo3LjUMwlPxpR3b-qm3wCV2SJevzNgwzVB4d61Ud_uBugwiRcwVVjkzkFIQW0U3upf4Zy0ySX");'></div>
+<div class="absolute -bottom-1 right-2 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full border-2 border-background-dark">#1</div>
+</div>
+<p class="text-sm font-bold truncate w-full text-center">GoldMaster_01</p>
+<p class="text-xs text-primary font-bold">24.9k Mastery</p>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative size-20 rounded-full p-1 bg-gradient-to-tr from-orange-600 to-orange-400">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="Profile picture of player ranked third" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBau5F9vxhUmPPvW1jCKcSR_6g8akATe4BAZUaUAwHblyXyBV9AN0CU6ywKwLd0lLGjBgVdOSNrFXTsjQQz5gxbO-EDqfV-j4KrHGvFLAvTvlGeH1h_SUCbKVboBKC9pz6SKe4tgjIxoOoa3jo4KWNUpB4U3WpErMbE-cfcwoMIVAGnPj_H0525TsedVrO7d5STGe-10PxrsKOPBHLtuyuUR89xJD78TIUtc7OFEiEcewJZXay0wYplIdRmtGDbjc1QgxXejQbpx59");'></div>
+<div class="absolute -bottom-1 -right-1 bg-orange-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full border-2 border-background-dark">#3</div>
+</div>
+<p class="text-xs font-bold truncate w-full text-center">CopperIon</p>
+<p class="text-[10px] text-primary font-medium">15.1k Mastery</p>
+</div>
+</div>
+<!-- Leaderboard List -->
+<div class="flex flex-col">
+<!-- Header for list -->
+<div class="px-6 py-2 flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500">
+<span>Player</span>
+<span>Mastery Score</span>
+</div>
+<!-- Player Rows -->
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-slate-400 w-4">4</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border border-slate-700" data-alt="User avatar for rank 4" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRkjjXVmkRHNFhlGYKC_fgxuxctqgYIZRM74U2lAtFwaX5RLzpRcylszqmitB05khDiVzlnkQjxcFOpYwJxeImCHEz8tttHEJZzgMs7h7lPNG8MnHMaCiK6YW8n9QcyqDWa3Qg6ddt06eIMqqIw4yHPDZ6d3lCpVs5s4PYQu-CZpzLrPowDTKEpYFGMXMCrCrI_e0PQdQXOHc8zSjx50mBslEaYWDJaAq2RQi9dlWFfamtbk4otvyNn_XfWGqwc5umaC-rDXUvD6N3");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal line-clamp-1">QuantumAlchemist</p>
+<p class="text-[#9da6b9] text-xs font-normal leading-normal line-clamp-2">Tier: Noble Gas</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-sm font-bold leading-normal">12,450</p>
+<p class="text-[10px] text-green-500 flex items-center justify-end"><span class="material-symbols-outlined text-[12px]">arrow_drop_up</span> +120</p>
+</div>
+</div>
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-slate-400 w-4">5</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border border-slate-700" data-alt="User avatar for rank 5" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxSmRGZanKg0PT_0rZOXAqdZItTCOAWS99TJm8kl-j1mhznPcLRDW2Ro_nKnkXBzX-og3ykdOnuLnOSHcbqRhhUFnufXYrI2IE6-H-1udIMiLngjLUx7kzzaaBCjL_8i8qoswyOqA4aJxizWJnP1nARX5KVoEfuKfCGZhnc0vtsh8GtWEyLlpsHWwAa_uJx8ld2_3iEU3szsfIqbCcHy9gOLjaa8FpodrstkDk2bBuneDZdCAdC3z7rYd5Y7beFoQOBBHeQYrxFoIF");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal line-clamp-1">LithiumLover</p>
+<p class="text-[#9da6b9] text-xs font-normal leading-normal line-clamp-2">Tier: Alkali Metal</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-sm font-bold leading-normal">11,902</p>
+<p class="text-[10px] text-slate-500 flex items-center justify-end"><span class="material-symbols-outlined text-[12px]">minimize</span> 0</p>
+</div>
+</div>
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-slate-400 w-4">6</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border border-slate-700" data-alt="User avatar for rank 6" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5PT8nIZBsxcLk46QgBQ_RmGE3YDV1Yk87FD1dwFmQqIkiICVGY0d3xb-uoyqf_btxJ3xwE1HU5kylric5w4rHGgfbR1kUzcw7qUJ3cVJO_yTG4zU3J4aOAzXxb3dxVFQ775iwjIAyaVBWKYYBs6AeMZqXwmgkgUJtkVirIG7wWTsPFDu8QH-4Ma8Yhwg7bY8JivWomsBLiRVE2LnhsBy4SPHKu4H_xztDrRKSiMh6T3RQGpMy6gs0fCtXg_NsCTMvUe3bJKEvglb9");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal line-clamp-1">OxygenIsKey</p>
+<p class="text-[#9da6b9] text-xs font-normal leading-normal line-clamp-2">Tier: Non-Metal</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-sm font-bold leading-normal">10,500</p>
+<p class="text-[10px] text-red-500 flex items-center justify-end"><span class="material-symbols-outlined text-[12px]">arrow_drop_down</span> -12</p>
+</div>
+</div>
+<div class="flex items-center gap-4 px-4 min-h-[72px] py-2 justify-between border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-slate-400 w-4">7</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border border-slate-700" data-alt="User avatar for rank 7" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArz-LPPmGsVgOt1RhWqDFEo0-nP3Hn25PPvdq5teS4NY4WJOSyG7hjsS4ve_H1MM935HQJCUMjn7FQopPn3O3rlR2X3x9JqOkKWkzf58lGsRuga_uuxBM05v7zCIRsaA8O3v_6w-8UZzRKWcs2r-1bhQCevQIdsk5iGQnWFiTqdpZFOgI05s4js3B4IbnBSUmnjWTsU207fGdP_fwwH7NNrFDxJYhb_fLquNttZPCOWrcVJ9KYi_AOh_S-L3SQ2JQ9OCwwyAvgQZE1");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-medium leading-normal line-clamp-1">NeonDreamer</p>
+<p class="text-[#9da6b9] text-xs font-normal leading-normal line-clamp-2">Tier: Noble Gas</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-sm font-bold leading-normal">9,842</p>
+<p class="text-[10px] text-green-500 flex items-center justify-end"><span class="material-symbols-outlined text-[12px]">arrow_drop_up</span> +450</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Personal Rank Footer -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light dark:bg-background-dark/95 backdrop-blur-xl border-t border-primary/30">
+<div class="max-w-md mx-auto flex items-center justify-between bg-primary rounded-xl px-4 py-3 shadow-lg shadow-primary/20">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-full bg-white/20 font-bold text-white text-sm">
+                    42
+                </div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-bold">You (AtomicHero)</p>
+<p class="text-white/70 text-[10px] uppercase font-medium">Top 5% Global</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-white text-sm font-bold">4,120 Mastery</p>
+<div class="w-24 h-1 bg-white/20 rounded-full mt-1 overflow-hidden">
+<div class="bg-white h-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

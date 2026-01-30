@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IonChain - Gacha Reward</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4c025",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .gold-glow {
+            box-shadow: 0 0 40px 10px rgba(244, 192, 37, 0.15);
+        }
+        .neon-beam {
+            background: radial-gradient(circle at center, rgba(244, 192, 37, 0.2) 0%, transparent 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col overflow-x-hidden relative">
+<!-- Top Navigation -->
+<header class="flex items-center bg-transparent p-4 pb-2 justify-between z-10">
+<div class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-3xl text-primary">auto_awesome</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">New Element Discovered!</h2>
+</header>
+<!-- Main Content Area with Glow Effects -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 relative">
+<!-- Background Neon Effect -->
+<div class="absolute inset-0 neon-beam pointer-events-none"></div>
+<!-- Rarity Badge -->
+<div class="z-20 mb-4">
+<div class="bg-primary text-background-dark px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg shadow-primary/30">
+                Super Rare (SR)
+            </div>
+</div>
+<!-- Gold Element Card -->
+<div class="w-full max-w-[320px] aspect-[3/4] bg-neutral-900/80 border-2 border-primary/50 rounded-xl relative overflow-hidden gold-glow backdrop-blur-md">
+<!-- Card Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_50%_120%,#f4c025,transparent)]"></div>
+<!-- Atomic Number -->
+<div class="absolute top-4 left-4 text-primary/80">
+<p class="text-sm font-bold">79</p>
+</div>
+<!-- Central Content -->
+<div class="flex flex-col items-center justify-center h-full">
+<!-- Large Symbol -->
+<h1 class="text-primary text-[100px] font-bold leading-none tracking-tighter drop-shadow-2xl">Au</h1>
+<p class="text-white text-2xl font-bold tracking-widest mt-2 uppercase">Gold</p>
+</div>
+<!-- Card Footer -->
+<div class="absolute bottom-6 left-0 right-0 text-center">
+<div class="flex justify-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-primary text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-xs fill-1">star</span>
+</div>
+</div>
+</div>
+<!-- Descriptions -->
+<div class="mt-10 text-center max-w-sm">
+<p class="text-[#bab29c] text-sm font-medium leading-normal mb-2 uppercase tracking-widest">Transition Metal</p>
+<p class="text-white text-lg font-normal leading-relaxed">
+                Highly conductive and incredibly rare. Use Gold to boost your IonChain reaction speed by <span class="text-primary font-bold">25%</span>.
+            </p>
+</div>
+</main>
+<!-- Footer Controls -->
+<footer class="p-6 space-y-3 pb-10 z-10">
+<button class="w-full bg-primary text-background-dark font-bold py-4 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">grid_view</span>
+            Equip to Grid
+        </button>
+<button class="w-full bg-transparent border-2 border-primary/30 text-primary font-bold py-4 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">share</span>
+            Share to Trading Hub
+        </button>
+<!-- Safe Area Indicator for iOS -->
+<div class="h-2"></div>
+</footer>
+<!-- Particle Simulation (Visual representation via CSS) -->
+<div class="fixed inset-0 pointer-events-none opacity-30">
+<div class="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full"></div>
+<div class="absolute top-1/3 right-1/4 w-2 h-2 bg-primary/50 rounded-full blur-[1px]"></div>
+<div class="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-primary/70 rounded-full blur-[2px]"></div>
+<div class="absolute top-1/2 right-10 w-1 h-1 bg-primary rounded-full"></div>
+</div>
+</body></html>
