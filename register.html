@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IonChain | Register</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "secondary": "#0d59f2",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-dark": "#16251d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Tooltip Animation */
+        .tooltip-enter {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .tooltip-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.2s;
+        }
+
+        .tooltip-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tooltip-exit-active {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Mobile Frame -->
+    <div
+        class="relative w-[412px] h-[915px] bg-background-dark rounded-[2.5rem] shadow-2xl overflow-hidden border-[8px] border-gray-800 ring-2 ring-gray-700 flex flex-col">
+
+        <!-- Camera Hole -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-32 bg-black rounded-b-xl z-50 pointer-events-none">
+        </div>
+
+        <!-- Header -->
+        <div class="p-6 pt-16 flex items-center justify-between">
+            <button
+                class="size-10 bg-white/5 rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 transition-colors"
+                onclick="history.back()">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h2 class="text-white font-bold font-display uppercase tracking-widest text-sm text-slate-500">New Account
+            </h2>
+            <div class="size-10"></div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto no-scrollbar p-8 flex flex-col justify-center gap-8">
+
+            <div class="text-center space-y-2">
+                <div
+                    class="size-20 bg-primary/20 rounded-2xl mx-auto flex items-center justify-center mb-4 border border-primary/30 shadow-[0_0_30px_rgba(19,236,128,0.2)]">
+                    <span class="material-symbols-outlined text-4xl text-primary">person_add</span>
+                </div>
+                <h1 class="text-3xl font-bold text-white font-display">Join the Lab</h1>
+                <p class="text-slate-400 text-sm">Create your IonChain ID to start synthesizing.</p>
+            </div>
+
+            <!-- Form -->
+            <form class="space-y-5" onsubmit="event.preventDefault(); window.location.href='homescreen.html'">
+
+                <!-- Email Field -->
+                <div class="space-y-2 relative">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">mail</span>
+
+                        <!-- Input -->
+                        <input type="email" id="email-input"
+                            class="w-full bg-surface-dark border border-white/10 rounded-xl py-4 pl-12 pr-12 text-white placeholder-slate-600 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none"
+                            placeholder="scientist@ionchain.io" oninput="validateEmail(this)">
+
+                        <!-- Status Icon -->
+                        <div id="email-status-icon" class="absolute right-4 top-1/2 -translate-y-1/2 hidden">
+                            <span class="material-symbols-outlined text-red-500">error</span>
+                        </div>
+                    </div>
+
+                    <!-- Validation Tooltip -->
+                    <div id="email-tooltip"
+                        class="hidden absolute z-20 left-0 right-0 -bottom-12 transition-all transform duration-200">
+                        <div
+                            class="bg-red-500/10 border border-red-500/50 rounded-lg p-2 flex items-center gap-2 text-red-400 text-xs font-bold backdrop-blur-md">
+                            <span class="material-symbols-outlined text-sm">info</span>
+                            <span id="tooltip-text">Invalid email format</span>
+                        </div>
+                        <!-- Arrow -->
+                        <div
+                            class="absolute -top-1 left-8 size-2 bg-red-900 border-t border-l border-red-500/50 transform rotate-45">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">lock</span>
+                        <input type="password"
+                            class="w-full bg-surface-dark border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-slate-600 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none"
+                            placeholder="••••••••">
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Confirm
+                        Password</label>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">lock_reset</span>
+                        <input type="password"
+                            class="w-full bg-surface-dark border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-slate-600 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none"
+                            placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit"
+                        class="w-full bg-primary text-background-dark font-bold text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(19,236,128,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide">
+                        Create Account
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-center text-slate-500 text-sm">
+                Already have an ID?
+                <a href="loginscreen.html" class="text-primary font-bold hover:underline">Log In</a>
+            </p>
+
+        </main>
+
+    </div>
+
+    <script>
+        function validateEmail(input) {
+            const value = input.value;
+            const tooltip = document.getElementById('email-tooltip');
+            const tooltipText = document.getElementById('tooltip-text');
+            const statusIcon = document.getElementById('email-status-icon');
+            const iconSpan = statusIcon.querySelector('span');
+
+            // Reset
+            if (value.length === 0) {
+                tooltip.classList.add('hidden');
+                statusIcon.classList.add('hidden');
+                input.classList.remove('border-red-500', 'border-primary');
+                return;
+            }
+
+            // Real-time Validation Logic
+            let isValid = true;
+            let errorMsg = "";
+
+            if (!value.includes('@')) {
+                isValid = false;
+                errorMsg = "Missing '@' symbol";
+            } else if (!value.split('@')[1] || !value.split('@')[1].includes('.')) {
+                isValid = false;
+                errorMsg = "Incomplete domain (e.g. .com)";
+            }
+
+            if (!isValid) {
+                // Show Error Tooltip
+                tooltip.classList.remove('hidden');
+                tooltipText.innerText = errorMsg;
+
+                // Update Input Style
+                input.classList.add('border-red-500');
+                input.classList.remove('border-primary');
+
+                // Update Icon
+                statusIcon.classList.remove('hidden');
+                iconSpan.innerText = 'error';
+                iconSpan.className = 'material-symbols-outlined text-red-500';
+            } else {
+                // Valid State
+                tooltip.classList.add('hidden');
+                input.classList.remove('border-red-500');
+                input.classList.add('border-primary');
+
+                // Update Icon
+                statusIcon.classList.remove('hidden');
+                iconSpan.innerText = 'check_circle';
+                iconSpan.className = 'material-symbols-outlined text-primary';
+            }
+        }
+    </script>
+</body>
+
+</html>

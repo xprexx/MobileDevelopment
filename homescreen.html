@@ -84,7 +84,7 @@
         </nav>
 
         <!-- Main Content (Simplified) -->
-        <main class="flex-1 overflow-y-auto no-scrollbar pt-20 pb-24 p-4 flex flex-col gap-4">
+        <main class="flex-1 overflow-y-auto no-scrollbar pt-28 pb-24 p-4 flex flex-col gap-4">
 
             <!-- Quick Stats -->
             <div class="flex gap-3">
@@ -138,25 +138,66 @@
                     </div>
                 </div>
 
-                <!-- Tutorial / AR (Smaller) -->
+                <!-- Tutorial / AR (Full Width) -->
                 <div onclick="window.location.href='ARscreen.html'"
-                    class="relative overflow-hidden rounded-2xl bg-surface-dark border border-white/5 flex flex-col p-4 cursor-pointer active:scale-[0.98] transition-all aspect-square justify-between">
-                    <span class="material-symbols-outlined text-3xl text-slate-500">view_in_ar</span>
-                    <div>
-                        <h4 class="font-bold text-white uppercase tracking-wider text-sm">AR View</h4>
-                        <p class="text-[10px] text-slate-500">Visualize atoms</p>
+                    class="col-span-2 h-28 relative overflow-hidden rounded-2xl bg-surface-dark border border-white/5 flex items-center justify-between p-6 cursor-pointer active:scale-[0.98] transition-all group">
+                    <div class="flex items-center gap-4 z-10">
+                        <div
+                            class="h-12 w-12 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
+                            <span
+                                class="material-symbols-outlined text-2xl text-slate-400 group-hover:text-white transition-colors">view_in_ar</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider text-sm">AR Molecular Viewer</h4>
+                            <p class="text-xs text-slate-500">Visualize atoms in 3D space</p>
+                        </div>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-slate-600 group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+
+                    <!-- decorative bg -->
+                    <div
+                        class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white/5 to-transparent pointer-events-none">
                     </div>
                 </div>
 
-                <!-- Leaderboard (Smaller) -->
-                <div class="relative overflow-hidden rounded-2xl bg-surface-dark border border-white/5 flex flex-col p-4 cursor-pointer active:scale-[0.98] transition-all aspect-square justify-between"
-                    onclick="alert('Coming soon!')">
-                    <span class="material-symbols-outlined text-3xl text-slate-500">trophy</span>
-                    <div>
-                        <h4 class="font-bold text-white uppercase tracking-wider text-sm">Top 100</h4>
-                        <p class="text-[10px] text-slate-500">Global Rank</p>
+                <!-- Spacer / News Section for "Lazy Scroll" -->
+                <div class="col-span-2 mt-4">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 pl-1">Lab News</h3>
+                    <div class="space-y-3">
+                        <!-- News Item 1 -->
+                        <div class="bg-surface-dark/50 border border-white/5 rounded-xl p-4 flex gap-3">
+                            <div class="min-w-1 min-h-full bg-primary rounded-full"></div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-300">New Elements Discovered</p>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Scientists have isolated new Noble Gases.
+                                    Check the database!</p>
+                            </div>
+                        </div>
+                        <!-- News Item 2 -->
+                        <div class="bg-surface-dark/50 border border-white/5 rounded-xl p-4 flex gap-3">
+                            <div class="min-w-1 min-h-full bg-secondary rounded-full"></div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-300">Market Crash?</p>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Gold prices fluctuate as synthesis becomes
+                                    cheaper.</p>
+                            </div>
+                        </div>
+                        <!-- News Item 3 -->
+                        <div class="bg-surface-dark/50 border border-white/5 rounded-xl p-4 flex gap-3">
+                            <div class="min-w-1 min-h-full bg-orange-500 rounded-full"></div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-300">System Update v2.0</p>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Improved stability for the molecular
+                                    rendering engine.</p>
+                            </div>
+                        </div>
+                        <!-- Bottom Spacer for easy reach -->
+                        <div class="h-10"></div>
                     </div>
                 </div>
+
+
 
             </div>
 
@@ -175,7 +216,7 @@
                 <a href="inventory.html"
                     class="flex flex-col items-center gap-1 text-slate-500 hover:text-white transition-colors">
                     <span class="material-symbols-outlined">grid_view</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest">Collection</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Database</span>
                 </a>
                 <!-- PLAY FAB -->
                 <a href="gamescreen.html" class="relative -top-6 group">
